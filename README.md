@@ -39,3 +39,9 @@ la licence avant d'ajouter l'élément et la noter dans sa fiche.
 
 - Le code d'origine reste **intact** dans `component.html` ; les adaptations vivent dans le projet qui l'utilise.
 - Renseigner « Utilisé dans » dans la fiche quand un élément est intégré quelque part.
+
+## Galerie en ligne (GitHub Pages)
+
+`index.html` est servi tel quel par GitHub Pages (branche `main`, dossier racine). Pour publier un
+nouvel élément : `node scripts/add-uiverse.mjs <URL>`, puis commit + push — la page se met à jour
+toute seule en une minute environ.
