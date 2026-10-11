@@ -7,7 +7,7 @@
 | Licence | MIT (tout le contenu Uiverse.io est sous licence MIT) |
 | Type | Card (CSS pur) |
 | Ajouté le | 2026-10-11 |
-| Utilisé dans | — |
+| Utilisé dans | fidelite — `CardCarousel` (Mes cartes ≥ 2 cartes, célébration de carte complète) |
 
 ## Notes d'intégration
 
