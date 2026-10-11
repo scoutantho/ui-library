@@ -12,6 +12,18 @@ window.CATALOG = [
     "code": "<!-- Source : https://uiverse.io/absoluteSTrange/tame-hound-16 — auteur : absoluteSTrange — licence MIT (Uiverse.io) -->\n<button>Button</button>\n\n<style>\nbutton {\n  padding: 17px 40px;\n  border-radius: 10px;\n  border: 0;\n  background-color: rgb(255, 56, 86);\n  letter-spacing: 1.5px;\n  font-size: 15px;\n  transition: all 0.3s ease;\n  box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;\n  color: hsl(0, 0%, 100%);\n  cursor: pointer;\n}\n\nbutton:hover {\n  box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;\n}\n\nbutton:active {\n  background-color: rgb(255, 56, 86);\n  /*50, 168, 80*/\n  box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;\n  transform: translateY(5px);\n  transition: 200ms;\n}\n</style>\n"
   },
   {
+    "id": "Ashon-G-mean-mayfly-77",
+    "kind": "Button",
+    "category": "buttons",
+    "author": "Ashon-G",
+    "slug": "mean-mayfly-77",
+    "url": "https://uiverse.io/Ashon-G/mean-mayfly-77",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/buttons/Ashon-G-mean-mayfly-77",
+    "code": "<!-- Source : https://uiverse.io/Ashon-G/mean-mayfly-77 — auteur : Ashon-G — licence MIT (Uiverse.io) -->\n<button class=\"uiverse\">\n  <div class=\"wrapper\">\n    <span>UIVERSE</span>\n    <div class=\"circle circle-12\"></div>\n    <div class=\"circle circle-11\"></div>\n    <div class=\"circle circle-10\"></div>\n    <div class=\"circle circle-9\"></div>\n    <div class=\"circle circle-8\"></div>\n    <div class=\"circle circle-7\"></div>\n    <div class=\"circle circle-6\"></div>\n    <div class=\"circle circle-5\"></div>\n    <div class=\"circle circle-4\"></div>\n    <div class=\"circle circle-3\"></div>\n    <div class=\"circle circle-2\"></div>\n    <div class=\"circle circle-1\"></div>\n  </div>\n</button>\n\n<style>\n.uiverse {\n  --duration: 7s;\n  --easing: linear;\n  --c-color-1: rgba(255, 163, 26, 0.7);\n  --c-color-2: #1a23ff;\n  --c-color-3: #e21bda;\n  --c-color-4: rgba(255, 232, 26, 0.7);\n  --c-shadow: rgba(255, 223, 87, 0.5);\n  --c-shadow-inset-top: rgba(255, 223, 52, 0.9);\n  --c-shadow-inset-bottom: rgba(255, 250, 215, 0.8);\n  --c-radial-inner: #ffd215;\n  --c-radial-outer: #fff172;\n  --c-color: #fff;\n  -webkit-tap-highlight-color: transparent;\n  -webkit-appearance: none;\n  outline: none;\n  position: relative;\n  cursor: pointer;\n  border: none;\n  display: table;\n  border-radius: 24px;\n  padding: 0;\n  margin: 0;\n  text-align: center;\n  font-weight: 600;\n  font-size: 16px;\n  letter-spacing: 0.02em;\n  line-height: 1.5;\n  color: var(--c-color);\n  background: radial-gradient(\n    circle,\n    var(--c-radial-inner),\n    var(--c-radial-outer) 80%\n  );\n  box-shadow: 0 0 14px var(--c-shadow);\n}\n\n.uiverse:before {\n  content: \"\";\n  pointer-events: none;\n  position: absolute;\n  z-index: 3;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  border-radius: 24px;\n  box-shadow:\n    inset 0 3px 12px var(--c-shadow-inset-top),\n    inset 0 -3px 4px var(--c-shadow-inset-bottom);\n}\n\n.uiverse .wrapper {\n  -webkit-mask-image: -webkit-radial-gradient(white, black);\n  overflow: hidden;\n  border-radius: 24px;\n  min-width: 132px;\n  padding: 12px 0;\n}\n\n.uiverse .wrapper span {\n  display: inline-block;\n  position: relative;\n  z-index: 1;\n}\n\n.uiverse:hover {\n  --duration: 1400ms;\n}\n\n.uiverse .wrapper .circle {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  filter: blur(var(--blur, 8px));\n  background: var(--background, transparent);\n  transform: translate(var(--x, 0), var(--y, 0)) translateZ(0);\n  animation: var(--animation, none) var(--duration) var(--easing) infinite;\n}\n\n.uiverse .wrapper .circle.circle-1,\n.uiverse .wrapper .circle.circle-9,\n.uiverse .wrapper .circle.circle-10 {\n  --background: var(--c-color-4);\n}\n\n.uiverse .wrapper .circle.circle-3,\n.uiverse .wrapper .circle.circle-4 {\n  --background: var(--c-color-2);\n  --blur: 14px;\n}\n\n.uiverse .wrapper .circle.circle-5,\n.uiverse .wrapper .circle.circle-6 {\n  --background: var(--c-color-3);\n  --blur: 16px;\n}\n\n.uiverse .wrapper .circle.circle-2,\n.uiverse .wrapper .circle.circle-7,\n.uiverse .wrapper .circle.circle-8,\n.uiverse .wrapper .circle.circle-11,\n.uiverse .wrapper .circle.circle-12 {\n  --background: var(--c-color-1);\n  --blur: 12px;\n}\n\n.uiverse .wrapper .circle.circle-1 {\n  --x: 0;\n  --y: -40px;\n  --animation: circle-1;\n}\n\n.uiverse .wrapper .circle.circle-2 {\n  --x: 92px;\n  --y: 8px;\n  --animation: circle-2;\n}\n\n.uiverse .wrapper .circle.circle-3 {\n  --x: -12px;\n  --y: -12px;\n  --animation: circle-3;\n}\n\n.uiverse .wrapper .circle.circle-4 {\n  --x: 80px;\n  --y: -12px;\n  --animation: circle-4;\n}\n\n.uiverse .wrapper .circle.circle-5 {\n  --x: 12px;\n  --y: -4px;\n  --animation: circle-5;\n}\n\n.uiverse .wrapper .circle.circle-6 {\n  --x: 56px;\n  --y: 16px;\n  --animation: circle-6;\n}\n\n.uiverse .wrapper .circle.circle-7 {\n  --x: 8px;\n  --y: 28px;\n  --animation: circle-7;\n}\n\n.uiverse .wrapper .circle.circle-8 {\n  --x: 28px;\n  --y: -4px;\n  --animation: circle-8;\n}\n\n.uiverse .wrapper .circle.circle-9 {\n  --x: 20px;\n  --y: -12px;\n  --animation: circle-9;\n}\n\n.uiverse .wrapper .circle.circle-10 {\n  --x: 64px;\n  --y: 16px;\n  --animation: circle-10;\n}\n\n.uiverse .wrapper .circle.circle-11 {\n  --x: 4px;\n  --y: 4px;\n  --animation: circle-11;\n}\n\n.uiverse .wrapper .circle.circle-12 {\n  --blur: 14px;\n  --x: 52px;\n  --y: 4px;\n  --animation: circle-12;\n}\n\n@keyframes circle-1 {\n  33% {\n    transform: translate(0px, 16px) translateZ(0);\n  }\n\n  66% {\n    transform: translate(12px, 64px) translateZ(0);\n  }\n}\n\n@keyframes circle-2 {\n  33% {\n    transform: translate(80px, -10px) translateZ(0);\n  }\n\n  66% {\n    transform: translate(72px, -48px) translateZ(0);\n  }\n}\n\n@keyframes circle-3 {\n  33% {\n    transform: translate(20px, 12px) translateZ(0);\n  }\n\n  66% {\n    transform: translate(12px, 4px) translateZ(0);\n  }\n}\n\n@keyframes circle-4 {\n  33% {\n    transform: translate(76px, -12px) translateZ(0);\n  }\n\n  66% {\n    transform: translate(112px, -8px) translateZ(0);\n  }\n}\n\n@keyframes circle-5 {\n  33% {\n    transform: translate(84px, 28px) translateZ(0);\n  }\n\n  66% {\n    transform: translate(40px, -32px) translateZ(0);\n  }\n}\n\n@keyframes circle-6 {\n  33% {\n    transform: translate(28px, -16px) translateZ(0);\n  }\n\n  66% {\n    transform: translate(76px, -56px) translateZ(0);\n  }\n}\n\n@keyframes circle-7 {\n  33% {\n    transform: translate(8px, 28px) translateZ(0);\n  }\n\n  66% {\n    transform: translate(20px, -60px) translateZ(0);\n  }\n}\n\n@keyframes circle-8 {\n  33% {\n    transform: translate(32px, -4px) translateZ(0);\n  }\n\n  66% {\n    transform: translate(56px, -20px) translateZ(0);\n  }\n}\n\n@keyframes circle-9 {\n  33% {\n    transform: translate(20px, -12px) translateZ(0);\n  }\n\n  66% {\n    transform: translate(80px, -8px) translateZ(0);\n  }\n}\n\n@keyframes circle-10 {\n  33% {\n    transform: translate(68px, 20px) translateZ(0);\n  }\n\n  66% {\n    transform: translate(100px, 28px) translateZ(0);\n  }\n}\n\n@keyframes circle-11 {\n  33% {\n    transform: translate(4px, 4px) translateZ(0);\n  }\n\n  66% {\n    transform: translate(68px, 20px) translateZ(0);\n  }\n}\n\n@keyframes circle-12 {\n  33% {\n    transform: translate(56px, 0px) translateZ(0);\n  }\n\n  66% {\n    transform: translate(60px, -32px) translateZ(0);\n  }\n}\n</style>\n"
+  },
+  {
     "id": "btongheng-blue-bobcat-63",
     "kind": "Button",
     "category": "buttons",
@@ -24,6 +36,18 @@ window.CATALOG = [
     "code": "<!-- Source : https://uiverse.io/btongheng/blue-bobcat-63 — auteur : btongheng — licence MIT (Uiverse.io) -->\n<button class=\"button\">\n  BUTTON\n</button>\n\n<style>\n.button {\n  --😀: #644dff;\n  --😀😀: #4836bb;\n  --😀😀😀: #654dff63;\n  cursor: pointer;\n  width: 184px;\n  height: 48px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 1rem;\n  font-size: 1.125em;\n  font-weight: 800;\n  letter-spacing: 2px;\n  color: #fff;\n  background: var(--😀);\n  border: 2px solid var(--😀😀);\n  border-radius: .75rem;\n  box-shadow: 0 8px 0 var(--😀😀);\n  transform: skew(-10deg);\n  transition: all .1s ease;\n  filter: drop-shadow(0 15px 20px var(--😀😀😀));\n}\n\n.button:active {\n  letter-spacing: 0px;\n  transform: skew(-10deg) translateY(8px);\n  box-shadow: 0 0 0 var(--😀😀😀);\n}\n</style>\n"
   },
   {
+    "id": "alexruix-heavy-elephant-39",
+    "kind": "Card",
+    "category": "cards",
+    "author": "alexruix",
+    "slug": "heavy-elephant-39",
+    "url": "https://uiverse.io/alexruix/heavy-elephant-39",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/cards/alexruix-heavy-elephant-39",
+    "code": "<!-- Source : https://uiverse.io/alexruix/heavy-elephant-39 — auteur : alexruix — licence MIT (Uiverse.io) -->\n<div class=\"card\">\n  <div class=\"card-info\">\n    <p class=\"title\">Magic Card</p>\n  </div>\n</div>\n\n<style>\n.card {\n --background: linear-gradient(to left, #f7ba2b 0%, #ea5358 100%);\n width: 190px;\n height: 254px;\n padding: 5px;\n border-radius: 1rem;\n overflow: visible;\n background: #f7ba2b;\n background: var(--background);\n position: relative;\n z-index: 1;\n}\n\n.card::after {\n position: absolute;\n content: \"\";\n top: 30px;\n left: 0;\n right: 0;\n z-index: -1;\n height: 100%;\n width: 100%;\n transform: scale(0.8);\n filter: blur(25px);\n background: #f7ba2b;\n background: var(--background);\n transition: opacity .5s;\n}\n\n.card-info {\n --color: #181818;\n background: var(--color);\n color: var(--color);\n display: flex;\n justify-content: center;\n align-items: center;\n width: 100%;\n height: 100%;\n overflow: visible;\n border-radius: .7rem;\n}\n\n.card .title {\n font-weight: bold;\n letter-spacing: .1em;\n}\n\n/*Hover*/\n.card:hover::after {\n opacity: 0;\n}\n\n.card:hover .card-info {\n color: #f7ba2b;\n transition: color 1s;\n}\n</style>\n"
+  },
+  {
     "id": "byllzz-fluffy-hound-44",
     "kind": "Card",
     "category": "cards",
@@ -34,6 +58,18 @@ window.CATALOG = [
     "addedAt": "2026-10-11",
     "path": "components/cards/byllzz-fluffy-hound-44",
     "code": "<!-- Source : https://uiverse.io/byllzz/fluffy-hound-44 — auteur : byllzz — licence MIT (Uiverse.io) -->\n<div class=\"glass-card\">\n  <div class=\"card-header\">\n    <div class=\"header-dropdown-container\">\n      <input type=\"checkbox\" id=\"dropdown-toggle\" class=\"hidden-toggle\" />\n      <label for=\"dropdown-toggle\" class=\"header-dropdown\">\n        <div class=\"icon-circle\"></div>\n        <span class=\"title\">Glass</span>\n        <svg class=\"arrow-down\" width=\"10\" height=\"6\" viewBox=\"0 0 10 6\">\n          <path\n            d=\"M1 1L5 5L9 1\"\n            stroke=\"currentColor\"\n            stroke-width=\"1.5\"\n            stroke-linecap=\"round\"\n            stroke-linejoin=\"round\"\n            fill=\"none\"\n          ></path>\n        </svg>\n      </label>\n      <div class=\"dropdown-menu\">\n        <div class=\"dropdown-item active\">Glass</div>\n        <div class=\"dropdown-item\">Plastic</div>\n        <div class=\"dropdown-item\">Metal</div>\n      </div>\n    </div>\n    <div class=\"beta-tag\">Beta</div>\n    <button class=\"close-btn\">✕</button>\n  </div>\n\n  <hr class=\"divider\" />\n\n  <div class=\"control-group\">\n    <label class=\"group-label\">Light</label>\n    <div class=\"light-controls\">\n      <div class=\"light-preview\">\n        <span class=\"pin-icon\">\n          <svg\n            class=\"torch-svg\"\n            viewBox=\"0 -0.5 25 25\"\n            fill=\"none\"\n            xmlns=\"http://www.w3.org/2000/svg\"\n          >\n            <g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\"></g>\n            <g\n              id=\"SVGRepo_tracerCarrier\"\n              stroke-linecap=\"round\"\n              stroke-linejoin=\"round\"\n            ></g>\n            <g id=\"SVGRepo_iconCarrier\">\n              <path\n                fill-rule=\"evenodd\"\n                clip-rule=\"evenodd\"\n                d=\"M5.0553 15.7213C4.1797 15.7044 3.48357 14.9809 3.5003 14.1053V10.8733C3.48357 9.99772 4.1797 9.27428 5.0553 9.25732H10.7153C11.074 9.25645 11.4209 9.12855 11.6943 8.89632L13.5253 7.35332C13.9965 6.96545 14.6514 6.89018 15.1983 7.16103C15.7452 7.43189 16.0823 7.99846 16.0593 8.60832V16.3703C16.0823 16.9802 15.7452 17.5467 15.1983 17.8176C14.6514 18.0885 13.9965 18.0132 13.5253 17.6253L11.6943 16.0823C11.4209 15.8501 11.074 15.7222 10.7153 15.7213H5.0553Z\"\n                stroke=\"#0A84FF\"\n                stroke-width=\"1.5\"\n                stroke-linecap=\"round\"\n                stroke-linejoin=\"round\"\n              ></path>\n              <path\n                d=\"M11.3683 12.4894C11.3683 12.0751 11.0325 11.7394 10.6183 11.7394C10.2041 11.7394 9.86829 12.0751 9.86829 12.4894H11.3683ZM9.86829 15.7214C9.86829 16.1356 10.2041 16.4714 10.6183 16.4714C11.0325 16.4714 11.3683 16.1356 11.3683 15.7214H9.86829ZM21.1461 8.25738C21.4863 8.02111 21.5706 7.55378 21.3343 7.21356C21.098 6.87333 20.6307 6.78907 20.2905 7.02533L21.1461 8.25738ZM17.9635 8.64133C17.6233 8.8776 17.539 9.34494 17.7753 9.68516C18.0115 10.0254 18.4789 10.1096 18.8191 9.87338L17.9635 8.64133ZM21.5003 13.2394C21.9145 13.2394 22.2503 12.9036 22.2503 12.4894C22.2503 12.0751 21.9145 11.7394 21.5003 11.7394V13.2394ZM19.1683 11.7394C18.7541 11.7394 18.4183 12.0751 18.4183 12.4894C18.4183 12.9036 18.7541 13.2394 19.1683 13.2394V11.7394ZM20.2961 17.9538C20.6366 18.1897 21.1038 18.105 21.3397 17.7645C21.5757 17.4241 21.4909 16.9568 21.1505 16.7209L20.2961 17.9538ZM18.8185 15.1049C18.478 14.869 18.0108 14.9537 17.7748 15.2942C17.5389 15.6346 17.6236 16.1019 17.9641 16.3378L18.8185 15.1049ZM9.86829 12.4894V15.7214H11.3683V12.4894H9.86829ZM20.2905 7.02533L17.9635 8.64133L18.8191 9.87338L21.1461 8.25738L20.2905 7.02533ZM21.5003 11.7394H19.1683V13.2394H21.5003V11.7394ZM21.1505 16.7209L18.8185 15.1049L17.9641 16.3378L20.2961 17.9538L21.1505 16.7209Z\"\n                fill=\"#0A84FF\"\n              ></path>\n            </g>\n          </svg>\n        </span>\n        <div class=\"gradient-square\"></div>\n      </div>\n      <div class=\"light-inputs\">\n        <div class=\"input-box interactive\">📐 -45°</div>\n        <div class=\"input-box interactive\">\n          <span>\n            <svg\n              style=\"height:15px; position:relative; top:2px;\"\n              viewBox=\"0 0 24 24\"\n              fill=\"none\"\n              xmlns=\"http://www.w3.org/2000/svg\"\n            >\n              <g id=\"SVGRepo_bgCarrier\" stroke-width=\"0\"></g>\n              <g\n                id=\"SVGRepo_tracerCarrier\"\n                stroke-linecap=\"round\"\n                stroke-linejoin=\"round\"\n              ></g>\n              <g id=\"SVGRepo_iconCarrier\">\n                <path\n                  fill-rule=\"evenodd\"\n                  clip-rule=\"evenodd\"\n                  d=\"M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V4C12.75 4.41421 12.4142 4.75 12 4.75C11.5858 4.75 11.25 4.41421 11.25 4V2C11.25 1.58579 11.5858 1.25 12 1.25ZM3.66865 3.71609C3.94815 3.41039 4.42255 3.38915 4.72825 3.66865L6.95026 5.70024C7.25596 5.97974 7.2772 6.45413 6.9977 6.75983C6.7182 7.06553 6.2438 7.08677 5.9381 6.80727L3.71609 4.77569C3.41039 4.49619 3.38915 4.02179 3.66865 3.71609ZM20.3314 3.71609C20.6109 4.02179 20.5896 4.49619 20.2839 4.77569L18.0619 6.80727C17.7562 7.08677 17.2818 7.06553 17.0023 6.75983C16.7228 6.45413 16.744 5.97974 17.0497 5.70024L19.2718 3.66865C19.5775 3.38915 20.0518 3.41039 20.3314 3.71609ZM12 7.75C9.65279 7.75 7.75 9.65279 7.75 12C7.75 14.3472 9.65279 16.25 12 16.25C14.3472 16.25 16.25 14.3472 16.25 12C16.25 9.65279 14.3472 7.75 12 7.75ZM6.25 12C6.25 8.82436 8.82436 6.25 12 6.25C15.1756 6.25 17.75 8.82436 17.75 12C17.75 15.1756 15.1756 17.75 12 17.75C8.82436 17.75 6.25 15.1756 6.25 12ZM1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H4C4.41421 11.25 4.75 11.5858 4.75 12C4.75 12.4142 4.41421 12.75 4 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12ZM19.25 12C19.25 11.5858 19.5858 11.25 20 11.25H22C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H20C19.5858 12.75 19.25 12.4142 19.25 12ZM17.0255 17.0252C17.3184 16.7323 17.7933 16.7323 18.0862 17.0252L20.3082 19.2475C20.6011 19.5404 20.601 20.0153 20.3081 20.3082C20.0152 20.6011 19.5403 20.601 19.2475 20.3081L17.0255 18.0858C16.7326 17.7929 16.7326 17.3181 17.0255 17.0252ZM6.97467 17.0253C7.26756 17.3182 7.26756 17.7931 6.97467 18.086L4.75244 20.3082C4.45955 20.6011 3.98468 20.6011 3.69178 20.3082C3.39889 20.0153 3.39889 19.5404 3.69178 19.2476L5.91401 17.0253C6.2069 16.7324 6.68177 16.7324 6.97467 17.0253ZM12 19.25C12.4142 19.25 12.75 19.5858 12.75 20V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V20C11.25 19.5858 11.5858 19.25 12 19.25Z\"\n                  fill=\"#ffffff\"\n                ></path>\n              </g>\n            </svg>\n          </span>\n          100%\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <hr class=\"divider\" />\n\n  <div class=\"sliders-container\">\n    <div class=\"slider-row\">\n      <label>Refraction</label>\n      <div class=\"slider-content\">\n        <div class=\"slider-wrapper\">\n          <input type=\"range\" class=\"custom-slider\" value=\"78\" />\n        </div>\n        <div class=\"slider-divider\"></div>\n        <span class=\"slider-value\">78</span>\n      </div>\n    </div>\n    <div class=\"slider-row\">\n      <label>Depth</label>\n      <div class=\"slider-content\">\n        <div class=\"slider-wrapper\">\n          <input type=\"range\" class=\"custom-slider\" value=\"56\" />\n        </div>\n        <div class=\"slider-divider\"></div>\n        <span class=\"slider-value\">56</span>\n      </div>\n    </div>\n    <div class=\"slider-row\">\n      <label>Dispersion</label>\n      <div class=\"slider-content\">\n        <div class=\"slider-wrapper\">\n          <input type=\"range\" class=\"custom-slider\" value=\"98\" />\n        </div>\n        <div class=\"slider-divider\"></div>\n        <span class=\"slider-value\">98</span>\n      </div>\n    </div>\n    <div class=\"slider-row\">\n      <label>Frost</label>\n      <div class=\"slider-content\">\n        <div class=\"slider-wrapper\">\n          <input type=\"range\" class=\"custom-slider\" value=\"60\" />\n        </div>\n        <div class=\"slider-divider\"></div>\n        <span class=\"slider-value\">60</span>\n      </div>\n    </div>\n  </div>\n</div>\n\n<style>\n/* Note: dropdown is functional, to see click the dropdown.. */\n.glass-card {\n  width: 290px;\n  background: rgba(36, 36, 36, 0.75);\n  backdrop-filter: blur(20px);\n  -webkit-backdrop-filter: blur(20px);\n  border-radius: 14px;\n  padding: 14px 16px;\n  color: #ffffff;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n  box-shadow:\n    0 20px 40px rgba(0, 0, 0, 0.4),\n    inset 0 1px 0 rgba(255, 255, 255, 0.1);\n  border: 1px solid rgba(255, 255, 255, 0.08);\n  transition: transform 0.3s ease;\n}\n\n/* dropdown*/\n.card-header {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  position: relative;\n}\n\n.header-dropdown-container {\n  position: relative;\n}\n\n.hidden-toggle {\n  display: none;\n}\n\n.header-dropdown {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  background: rgba(255, 255, 255, 0.08);\n  padding: 6px 10px;\n  border-radius: 8px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border: 1px solid rgba(255, 255, 255, 0.05);\n}\n\n.header-dropdown:hover {\n  background: rgba(255, 255, 255, 0.15);\n}\n\n.icon-circle {\n  width: 12px;\n  height: 12px;\n  border: 2px solid #8e8e93;\n  border-radius: 50%;\n  transition: border-color 0.2s ease;\n}\n\n.header-dropdown:hover .icon-circle {\n  border-color: #0a84ff;\n}\n\n.title {\n  font-size: 13px;\n  font-weight: 500;\n  letter-spacing: 0.3px;\n}\n\n.arrow-down {\n  color: #8e8e93;\n  margin-left: 2px;\n  transition: transform 0.3s ease;\n}\n\n/* dropdown Logic */\n.dropdown-menu {\n  opacity: 0;\n  visibility: hidden;\n  transform: translateY(-10px);\n  position: absolute;\n  top: 120%;\n  left: 0;\n  background: rgba(40, 40, 40, 0.95);\n  backdrop-filter: blur(15px);\n  border: 1px solid rgba(255, 255, 255, 0.1);\n  border-radius: 8px;\n  padding: 4px;\n  min-width: 120px;\n  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);\n  z-index: 10;\n  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);\n}\n\n.hidden-toggle:checked ~ .dropdown-menu {\n  opacity: 1;\n  visibility: visible;\n  transform: translateY(0);\n}\n\n.hidden-toggle:checked + .header-dropdown .arrow-down {\n  transform: rotate(180deg);\n  color: #ffffff;\n}\n\n.dropdown-item {\n  padding: 6px 8px;\n  font-size: 13px;\n  border-radius: 4px;\n  cursor: pointer;\n  color: #e0e0e0;\n  transition: all 0.2s ease;\n}\n\n.dropdown-item:hover {\n  background: #0a84ff;\n  color: white;\n}\n\n.dropdown-item.active {\n  background: rgba(255, 255, 255, 0.1);\n}\n\n/* elements */\n.beta-tag {\n  font-size: 11px;\n  color: #8e8e93;\n  font-weight: 500;\n}\n\n.close-btn {\n  margin-left: auto;\n  background: none;\n  border: none;\n  color: #8e8e93;\n  cursor: pointer;\n  font-size: 14px;\n  padding: 4px;\n  transition: all 0.2s ease;\n}\n\n.close-btn:hover {\n  color: #fff;\n  transform: rotate(90deg);\n}\n\n.divider {\n  border: none;\n  border-top: 1px solid rgba(255, 255, 255, 0.08);\n  margin: 8px 0;\n}\n\n.control-group {\n  display: flex;\n  align-items: flex-start;\n  gap: 16px;\n}\n\n.group-label {\n  font-size: 12px;\n  color: #8e8e93;\n  width: 65px;\n  margin-top: 6px;\n}\n\n.light-controls {\n  display: flex;\n  gap: 8px;\n  flex: 1;\n  background: rgba(0, 0, 0, 0.2);\n  padding: 8px;\n  border-radius: 10px;\n}\n\n.light-preview {\n  width: 52px;\n  height: 52px;\n  border-radius: 8px;\n  position: relative;\n  overflow: hidden;\n  background: radial-gradient(circle at top left, #a1a1a1, #1a1a1a 70%);\n}\n.pin-icon {\n  position: relative;\n}\n.torch-svg {\n  height: 20px;\n  position: absolute;\n  top: 30px;\n  left: 30px;\n  transform: rotate(-140deg);\n}\n.input-box {\n  background: rgba(255, 255, 255, 0.06);\n  padding: 5px 8px;\n  width: 90px;\n  border-radius: 6px;\n  font-size: 12px;\n  color: #e0e0e0;\n  margin-bottom: 4px;\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n\n/* Range Slider Section */\n.sliders-container {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n}\n\n.slider-row {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.slider-content {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  background: rgba(36, 36, 36, 0.75);\n  height: 35px;\n  padding-inline: 10px;\n  border-radius: 5px;\n}\n.slider-divider {\n  height: 50%;\n  width: 2px;\n  background-color: #cccccc77;\n}\n.slider-value {\n  font-weight: 600;\n  color: #8e8e93;\n}\n\n.slider-row label {\n  font-size: 12px;\n  color: #8e8e93;\n  width: 70px;\n}\n\n/* The Secret to the Pure CSS Blue Fill */\n.slider-wrapper {\n  flex: 1;\n  height: 8px;\n  display: flex;\n  align-items: center;\n  border-radius: 3px;\n  overflow: hidden;\n  background-color: #1a1a1a;\n}\n\n.custom-slider {\n  -webkit-appearance: none;\n  width: 100%;\n  height: 6px;\n  background: transparent;\n  outline: none;\n  cursor: grab;\n}\n\n.custom-slider:active {\n  cursor: grabbing;\n}\n\n/* Chrome, Safari, Edge Thumb */\n.custom-slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  height: 20px;\n  width: 20px;\n  border-radius: 999px;\n  background: #ffffff;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  cursor: pointer;\n  box-shadow: -407px 0 0 400px #0a84ff;\n  transition: transform 0.2s ease;\n}\n\n.custom-slider:hover::-webkit-slider-thumb {\n  transform: scale(1.2);\n}\n\n/* Firefox Fill */\n.custom-slider::-moz-range-progress {\n  background-color: #0a84ff;\n}\n\n.custom-slider::-moz-range-thumb {\n  height: 14px;\n  width: 14px;\n  border-radius: 50%;\n  background: #ffffff;\n  border: none;\n}\n</style>\n"
+  },
+  {
+    "id": "dylanharriscameron-stupid-mole-90",
+    "kind": "Card",
+    "category": "cards",
+    "author": "dylanharriscameron",
+    "slug": "stupid-mole-90",
+    "url": "https://uiverse.io/dylanharriscameron/stupid-mole-90",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/cards/dylanharriscameron-stupid-mole-90",
+    "code": "<!-- Source : https://uiverse.io/dylanharriscameron/stupid-mole-90 — auteur : dylanharriscameron — licence MIT (Uiverse.io) -->\n<div class=\"card\">\n  <div class=\"bg\"></div>\n  <div class=\"blob\"></div>\n</div>\n\n<style>\n.card {\n  position: relative;\n  width: 200px;\n  height: 250px;\n  border-radius: 14px;\n  z-index: 1111;\n  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;\n  ;\n}\n\n.bg {\n  position: absolute;\n  top: 5px;\n  left: 5px;\n  width: 190px;\n  height: 240px;\n  z-index: 2;\n  background: rgba(255, 255, 255, .95);\n  backdrop-filter: blur(24px);\n  border-radius: 10px;\n  overflow: hidden;\n  outline: 2px solid white;\n}\n\n.blob {\n  position: absolute;\n  z-index: 1;\n  top: 50%;\n  left: 50%;\n  width: 150px;\n  height: 150px;\n  border-radius: 50%;\n  background-color: #ff0000;\n  opacity: 1;\n  filter: blur(12px);\n  animation: blob-bounce 5s infinite ease;\n}\n\n@keyframes blob-bounce {\n  0% {\n    transform: translate(-100%, -100%) translate3d(0, 0, 0);\n  }\n\n  25% {\n    transform: translate(-100%, -100%) translate3d(100%, 0, 0);\n  }\n\n  50% {\n    transform: translate(-100%, -100%) translate3d(100%, 100%, 0);\n  }\n\n  75% {\n    transform: translate(-100%, -100%) translate3d(0, 100%, 0);\n  }\n\n  100% {\n    transform: translate(-100%, -100%) translate3d(0, 0, 0);\n  }\n}\n</style>\n"
   },
   {
     "id": "ilkhoeri-swift-panda-38",
@@ -58,5 +94,197 @@ window.CATALOG = [
     "addedAt": "2026-10-11",
     "path": "components/cards/joe-watson-sbf-little-goat-24",
     "code": "<!-- Source : https://uiverse.io/joe-watson-sbf/little-goat-24 — auteur : joe-watson-sbf — licence MIT (Uiverse.io) -->\n<div class=\"flip-card\">\n    <div class=\"flip-card-inner\">\n        <div class=\"flip-card-front\">\n            <p class=\"title\">FLIP CARD</p>\n            <p>Hover Me</p>\n        </div>\n        <div class=\"flip-card-back\">\n            <p class=\"title\">BACK</p>\n            <p>Leave Me</p>\n        </div>\n    </div>\n</div>\n\n<style>\n.flip-card {\n  background-color: transparent;\n  width: 190px;\n  height: 254px;\n  perspective: 1000px;\n  font-family: sans-serif;\n}\n\n.title {\n  font-size: 1.5em;\n  font-weight: 900;\n  text-align: center;\n  margin: 0;\n}\n\n.flip-card-inner {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  text-align: center;\n  transition: transform 0.8s;\n  transform-style: preserve-3d;\n}\n\n.flip-card:hover .flip-card-inner {\n  transform: rotateY(180deg);\n}\n\n.flip-card-front, .flip-card-back {\n  box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  width: 100%;\n  height: 100%;\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n  border: 1px solid coral;\n  border-radius: 1rem;\n}\n\n.flip-card-front {\n  background: linear-gradient(120deg, bisque 60%, rgb(255, 231, 222) 88%,\n     rgb(255, 211, 195) 40%, rgba(255, 127, 80, 0.603) 48%);\n  color: coral;\n}\n\n.flip-card-back {\n  background: linear-gradient(120deg, rgb(255, 174, 145) 30%, coral 88%,\n     bisque 40%, rgb(255, 185, 160) 78%);\n  color: white;\n  transform: rotateY(180deg);\n}\n</style>\n"
+  },
+  {
+    "id": "mRcOol7-lovely-donkey-55",
+    "kind": "Card",
+    "category": "cards",
+    "author": "mRcOol7",
+    "slug": "lovely-donkey-55",
+    "url": "https://uiverse.io/mRcOol7/lovely-donkey-55",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/cards/mRcOol7-lovely-donkey-55",
+    "code": "<!-- Source : https://uiverse.io/mRcOol7/lovely-donkey-55 — auteur : mRcOol7 — licence MIT (Uiverse.io) -->\n<div class=\"card\">\n  <div class=\"card-info\">\n    <p class=\"title\">Magic Card</p>\n  </div>\n</div>\n\n<style>\n.card {\n  --background: linear-gradient(to right, #74ebd5 0%, #acb6e5 100%);\n  width: 190px;\n  height: 254px;\n  padding: 5px;\n  border-radius: 1rem;\n  overflow: visible;\n  background: #74ebd5;\n  background: var(--background);\n  position: relative;\n  z-index: 1;\n}\n\n.card::before,\n.card::after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  border-radius: 1rem;\n  z-index: -1;\n}\n\n.card::before {\n  background: linear-gradient(to bottom right, #f6d365 0%, #fda085 100%);\n  transform: rotate(2deg);\n}\n\n.card::after {\n  background: linear-gradient(to top right, #84fab0 0%, #8fd3f4 100%);\n  transform: rotate(-2deg);\n}\n\n.card-info {\n  --color: #292b2c;\n  background: var(--color);\n  color: var(--color);\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n  overflow: visible;\n  border-radius: 0.7rem;\n  position: relative;\n  z-index: 2;\n}\n\n.card .title {\n  font-weight: bold;\n  letter-spacing: 0.1em;\n}\n\n.card:hover::before,\n.card:hover::after {\n  opacity: 0;\n}\n\n.card:hover .card-info {\n  color: #74ebd5;\n  transition: color 1s;\n}\n</style>\n"
+  },
+  {
+    "id": "aadium-soft-panda-93",
+    "kind": "Pattern",
+    "category": "patterns",
+    "author": "aadium",
+    "slug": "soft-panda-93",
+    "url": "https://uiverse.io/aadium/soft-panda-93",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/patterns/aadium-soft-panda-93",
+    "code": "<!-- Source : https://uiverse.io/aadium/soft-panda-93 — auteur : aadium — licence MIT (Uiverse.io) -->\n<div class=\"container\"></div>\n\n<style>\n.container {\n  --color1: rgb(0, 3, 49);\n  --color2: rgb(248, 255, 182);\n  width: 100%;\n  height: 100%;\n  background-image: linear-gradient(45deg, var(--color2) 25%, transparent 25%, transparent 75%, var(--color2) 75%, var(--color2)), \n                    linear-gradient(135deg, var(--color2) 25%, var(--color1) 25%, var(--color1) 75%, var(--color2) 75%, var(--color2));\n  background-size: 90px 90px;\n  background-position: 0 0, 135px 135px;\n}\n</style>\n"
+  },
+  {
+    "id": "AspenBranch-slippery-sheep-50",
+    "kind": "Pattern",
+    "category": "patterns",
+    "author": "AspenBranch",
+    "slug": "slippery-sheep-50",
+    "url": "https://uiverse.io/AspenBranch/slippery-sheep-50",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/patterns/AspenBranch-slippery-sheep-50",
+    "code": "<!-- Source : https://uiverse.io/AspenBranch/slippery-sheep-50 — auteur : AspenBranch — licence MIT (Uiverse.io) -->\n<div class=\"container\"></div>\n\n<style>\n.container {\n  width: 100%;\n  height: 100%;\n  background: repeating-linear-gradient(45deg, #92c9b1, #92c9b1 20px, #b3e0d2 20px, #b3e0d2 40px);\n}\n</style>\n"
+  },
+  {
+    "id": "csemszepp-modern-zebra-66",
+    "kind": "Pattern",
+    "category": "patterns",
+    "author": "csemszepp",
+    "slug": "modern-zebra-66",
+    "url": "https://uiverse.io/csemszepp/modern-zebra-66",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/patterns/csemszepp-modern-zebra-66",
+    "code": "<!-- Source : https://uiverse.io/csemszepp/modern-zebra-66 — auteur : csemszepp — licence MIT (Uiverse.io) -->\n<div class=\"container\"></div>\n\n<style>\n.container {\n  width: 100%;\n  height: 100%;\n  --s: 200px; /* control the size */\n  --c1: #1d1d1d;\n  --c2: #4e4f51;\n  --c3: #3c3c3c;\n\n  background: repeating-conic-gradient(\n        from 30deg,\n        #0000 0 120deg,\n        var(--c3) 0 180deg\n      )\n      calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),\n    repeating-conic-gradient(\n      from 30deg,\n      var(--c1) 0 60deg,\n      var(--c2) 0 120deg,\n      var(--c3) 0 180deg\n    );\n  background-size: var(--s) calc(var(--s) * 0.577);\n}\n</style>\n"
+  },
+  {
+    "id": "csemszepp-serious-cobra-89",
+    "kind": "Pattern",
+    "category": "patterns",
+    "author": "csemszepp",
+    "slug": "serious-cobra-89",
+    "url": "https://uiverse.io/csemszepp/serious-cobra-89",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/patterns/csemszepp-serious-cobra-89",
+    "code": "<!-- Source : https://uiverse.io/csemszepp/serious-cobra-89 — auteur : csemszepp — licence MIT (Uiverse.io) -->\n<div class=\"container\"></div>\n\n<style>\n.container {\n  width: 100%;\n  height: 100%;\n  --s: 100px; /* control the size */\n\n  --_g: #0000 90deg, #366 0;\n  background: conic-gradient(from 90deg at 2px 2px, var(--_g)),\n    conic-gradient(from 90deg at 1px 1px, var(--_g));\n  background-size: var(--s) var(--s), calc(var(--s) / 5) calc(var(--s) / 5);\n}\n</style>\n"
+  },
+  {
+    "id": "denverdelamasa-sweet-chipmunk-70",
+    "kind": "Pattern",
+    "category": "patterns",
+    "author": "denverdelamasa",
+    "slug": "sweet-chipmunk-70",
+    "url": "https://uiverse.io/denverdelamasa/sweet-chipmunk-70",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/patterns/denverdelamasa-sweet-chipmunk-70",
+    "code": "<!-- Source : https://uiverse.io/denverdelamasa/sweet-chipmunk-70 — auteur : denverdelamasa — licence MIT (Uiverse.io) -->\n<div class=\"hypnotic-bg\"></div>\n\n<style>\n.hypnotic-bg {\n  width: 100%;\n  height: 100%;\n  background:\n    radial-gradient(\n        100% 100% at 100% 100%,\n        #0000 46%,\n        #670000 47% 53%,\n        #0000 54%\n      )\n      37px 37px,\n    radial-gradient(100% 100% at 0 0, #0000 46%, #670000 47% 53%, #0000 54%)\n      37px 37px,\n    radial-gradient(\n        100% 100%,\n        #0000 22%,\n        #670000 23% 29%,\n        #0000 30% 34%,\n        #670000 35% 41%,\n        #0000 42%\n      )\n      #ff6700;\n  background-size: 74px 74px;\n}\n</style>\n"
+  },
+  {
+    "id": "Joban2009-evil-goose-9",
+    "kind": "Pattern",
+    "category": "patterns",
+    "author": "Joban2009",
+    "slug": "evil-goose-9",
+    "url": "https://uiverse.io/Joban2009/evil-goose-9",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/patterns/Joban2009-evil-goose-9",
+    "code": "<!-- Source : https://uiverse.io/Joban2009/evil-goose-9 — auteur : Joban2009 — licence MIT (Uiverse.io) -->\n<div class=\"container\"></div>\n\n<style>\n.container {\n  width: 100%;\n  height: 100%;\n  --s: 83px;\n  --o: 0.5;\n  --c1: rgba(244, 235, 208, var(--o));\n  --c2: rgba(194, 178, 163, var(--o));\n\n  background-image: linear-gradient(var(--c1) 50%, var(--c2) 50%),\n    linear-gradient(45deg, var(--c1) 50%, var(--c2) 50%),\n    linear-gradient(90deg, var(--c1) 50%, var(--c2) 50%),\n    linear-gradient(135deg, var(--c1) 50%, var(--c2) 50%);\n  background-size: var(--s) var(--s);\n}\n</style>\n"
+  },
+  {
+    "id": "Juanes200122-foolish-swan-57",
+    "kind": "Pattern",
+    "category": "patterns",
+    "author": "Juanes200122",
+    "slug": "foolish-swan-57",
+    "url": "https://uiverse.io/Juanes200122/foolish-swan-57",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/patterns/Juanes200122-foolish-swan-57",
+    "code": "<!-- Source : https://uiverse.io/Juanes200122/foolish-swan-57 — auteur : Juanes200122 — licence MIT (Uiverse.io) -->\n<div class=\"container\"></div>\n\n<style>\n.container {\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  perspective: 1000px;\n  background: linear-gradient(45deg, #000000 25%, transparent 25%),\n    linear-gradient(\n      -135deg,\n      #000000 25%,\n      transparent 25%,\n      transparent 75%,\n      #000000 75%,\n      #000000\n    );\n  background-size: 50px 50px;\n}\n</style>\n"
+  },
+  {
+    "id": "kennyotsu-monochromia-spotty-cheetah-65",
+    "kind": "Pattern",
+    "category": "patterns",
+    "author": "kennyotsu-monochromia",
+    "slug": "spotty-cheetah-65",
+    "url": "https://uiverse.io/kennyotsu-monochromia/spotty-cheetah-65",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/patterns/kennyotsu-monochromia-spotty-cheetah-65",
+    "code": "<!-- Source : https://uiverse.io/kennyotsu-monochromia/spotty-cheetah-65 — auteur : kennyotsu-monochromia — licence MIT (Uiverse.io) -->\n<div class=\"container\"></div>\n\n<style>\n.container {\n  width: 100%;\n  height: 100%;\n  --color: #E1E1E1;\n  background-color: #F3F3F3;\n  background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),\n      linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);\n  background-size: 55px 55px;\n}\n</style>\n"
+  },
+  {
+    "id": "kennyotsu-short-warthog-33",
+    "kind": "Pattern",
+    "category": "patterns",
+    "author": "kennyotsu",
+    "slug": "short-warthog-33",
+    "url": "https://uiverse.io/kennyotsu/short-warthog-33",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/patterns/kennyotsu-short-warthog-33",
+    "code": "<!-- Source : https://uiverse.io/kennyotsu/short-warthog-33 — auteur : kennyotsu — licence MIT (Uiverse.io) -->\n<div class=\"container\"></div>\n\n<style>\n.container {\n  width: 100%;\n  height: 100%;\n  /* Add your background pattern here */\n  background-color: #313131;\n  background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);\n  background-size: 30px 30px;\n  background-position: -5px -5px\n}\n</style>\n"
+  },
+  {
+    "id": "marcelodolza-kind-panther-75",
+    "kind": "Pattern",
+    "category": "patterns",
+    "author": "marcelodolza",
+    "slug": "kind-panther-75",
+    "url": "https://uiverse.io/marcelodolza/kind-panther-75",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/patterns/marcelodolza-kind-panther-75",
+    "code": "<!-- Source : https://uiverse.io/marcelodolza/kind-panther-75 — auteur : marcelodolza — licence MIT (Uiverse.io) -->\n<div class=\"container\"></div>\n\n<style>\n.container {\n  width: 100%;\n  height: 100%;\n  --s: 100px; /* control the size */\n  --c1: #f8b195;\n  --c2: #355c7d;\n\n  --_g: var(--c2) 4% 14%, var(--c1) 14% 24%, var(--c2) 22% 34%,\n    var(--c1) 34% 44%, var(--c2) 44% 56%, var(--c1) 56% 66%, var(--c2) 66% 76%,\n    var(--c1) 76% 86%, var(--c2) 86% 96%;\n  background: radial-gradient(\n      100% 100% at 100% 0,\n      var(--c1) 4%,\n      var(--_g),\n      #0008 96%,\n      #0000\n    ),\n    radial-gradient(\n        100% 100% at 0 100%,\n        #0000,\n        #0008 4%,\n        var(--_g),\n        var(--c1) 96%\n      )\n      var(--c1);\n  background-size: var(--s) var(--s);\n}\n</style>\n"
+  },
+  {
+    "id": "MikeAndrewDesigner-fuzzy-duck-40",
+    "kind": "Pattern",
+    "category": "patterns",
+    "author": "MikeAndrewDesigner",
+    "slug": "fuzzy-duck-40",
+    "url": "https://uiverse.io/MikeAndrewDesigner/fuzzy-duck-40",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/patterns/MikeAndrewDesigner-fuzzy-duck-40",
+    "code": "<!-- Source : https://uiverse.io/MikeAndrewDesigner/fuzzy-duck-40 — auteur : MikeAndrewDesigner — licence MIT (Uiverse.io) -->\n<div class=\"container\"></div>\n\n<style>\n.container {\n  width: 100%;\n  height: 100%;\n  --s: 60px;\n  --c1: #180a22;\n  --c2: #5b42f3;\n  --_g: radial-gradient(\n    25% 25% at 25% 25%,\n    var(--c1) 99%,\n    rgba(0, 0, 0, 0) 101%\n  );\n  background: var(--_g) var(--s) var(--s) / calc(2 * var(--s))\n      calc(2 * var(--s)),\n    var(--_g) 0 0 / calc(2 * var(--s)) calc(2 * var(--s)),\n    radial-gradient(50% 50%, var(--c2) 98%, rgba(0, 0, 0, 0)) 0 0 / var(--s)\n      var(--s),\n    repeating-conic-gradient(var(--c2) 0 50%, var(--c1) 0 100%)\n      calc(0.5 * var(--s)) 0 / calc(2 * var(--s)) var(--s);\n}\n</style>\n"
+  },
+  {
+    "id": "uiverse-astronaut-jolly-parrot-30",
+    "kind": "Pattern",
+    "category": "patterns",
+    "author": "uiverse-astronaut",
+    "slug": "jolly-parrot-30",
+    "url": "https://uiverse.io/uiverse-astronaut/jolly-parrot-30",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/patterns/uiverse-astronaut-jolly-parrot-30",
+    "code": "<!-- Source : https://uiverse.io/uiverse-astronaut/jolly-parrot-30 — auteur : uiverse-astronaut — licence MIT (Uiverse.io) -->\n<div class=\"container\"></div>\n\n<style>\n.container {\n  width: 100%;\n  height: 100%;\n  --color: #a748f5;\n  background: linear-gradient(95deg, var(--color) 25%, transparent 25%) -50px 0,\n        linear-gradient(-15deg, var(--color) 25%, transparent 25%) -50px 0,\n        linear-gradient(25deg, transparent 75%, var(--color) 75%) -50px 0,\n        linear-gradient(-45deg, transparent 75%, var(--color) 75%) -50px 0,\n        linear-gradient(-15deg, transparent 75%, var(--color) 75%) -50px 0;\n  background-color: #b669fd;\n  background-size: 40px 40px;\n}\n</style>\n"
+  },
+  {
+    "id": "uiverse-astronaut-soft-fox-100",
+    "kind": "Pattern",
+    "category": "patterns",
+    "author": "uiverse-astronaut",
+    "slug": "soft-fox-100",
+    "url": "https://uiverse.io/uiverse-astronaut/soft-fox-100",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/patterns/uiverse-astronaut-soft-fox-100",
+    "code": "<!-- Source : https://uiverse.io/uiverse-astronaut/soft-fox-100 — auteur : uiverse-astronaut — licence MIT (Uiverse.io) -->\n<div class=\"container\"></div>\n\n<style>\n.container {\n  width: 100%;\n  height: 100%;\n  /* Add your background pattern here */\n  background-color: #e5e5f7;\n  background-image: radial-gradient(#444cf7 10%, transparent 10%),\n                      radial-gradient(#444cf7 10%, transparent 10%);\n  background-size: 100px 100px;\n  background-position: 0 0, 50px 50px;\n}\n</style>\n"
+  },
+  {
+    "id": "uiverse-astronaut-stale-chicken-35",
+    "kind": "Pattern",
+    "category": "patterns",
+    "author": "uiverse-astronaut",
+    "slug": "stale-chicken-35",
+    "url": "https://uiverse.io/uiverse-astronaut/stale-chicken-35",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/patterns/uiverse-astronaut-stale-chicken-35",
+    "code": "<!-- Source : https://uiverse.io/uiverse-astronaut/stale-chicken-35 — auteur : uiverse-astronaut — licence MIT (Uiverse.io) -->\n<div class=\"container\"></div>\n\n<style>\n.container {\n  width: 100%;\n  height: 100%;\n  --color: #faa7d8;\n  background: linear-gradient(45deg, var(--color) 25%, transparent 25%) -50px 0,\n        linear-gradient(-45deg, var(--color) 25%, transparent 25%) -50px 0,\n        linear-gradient(45deg, transparent 75%, var(--color) 75%) -50px 0,\n        linear-gradient(-45deg, transparent 75%, var(--color) 75%) -50px 0;\n  background-color: #e5e5f7;\n  background-size: 10px 40px;\n}\n</style>\n"
+  },
+  {
+    "id": "uiverse-astronaut-tall-vampirebat-56",
+    "kind": "Pattern",
+    "category": "patterns",
+    "author": "uiverse-astronaut",
+    "slug": "tall-vampirebat-56",
+    "url": "https://uiverse.io/uiverse-astronaut/tall-vampirebat-56",
+    "isTailwind": false,
+    "addedAt": "2026-10-11",
+    "path": "components/patterns/uiverse-astronaut-tall-vampirebat-56",
+    "code": "<!-- Source : https://uiverse.io/uiverse-astronaut/tall-vampirebat-56 — auteur : uiverse-astronaut — licence MIT (Uiverse.io) -->\n<div class=\"container\"></div>\n\n<style>\n.container {\n  width: 100%;\n  height: 100%;\n  --color1: rgb(108, 231, 221);\n  --color2: rgb(250, 255, 178);\n  background-color: var(--color1);\n  background-image: linear-gradient(45deg, var(--color2) 25%, transparent 25%, transparent 75%, var(--color2) 75%, var(--color2)), \n                    linear-gradient(45deg, var(--color2) 25%, var(--color1) 25%, var(--color1) 75%, var(--color2) 75%, var(--color2));\n  background-size: 60px 60px;\n  background-position: 0 0, 30px 30px;\n}\n</style>\n"
   }
 ];
