@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UI Library</title>
+  <style>
+    :root {
+      --bg: #f4f2ee; --panel: #fff; --ink: #1d1d1f; --muted: #6e6e73; --line: #e3e0da; --accent: #1f7a8c;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #141416; --panel: #1e1e21; --ink: #f2f2f2; --muted: #a1a1a6; --line: #2f2f33; --accent: #5cc3d6; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+    header { padding: 28px 16px 8px; max-width: 1200px; margin: 0 auto; }
+    h1 { margin: 0 0 4px; font-size: 26px; }
+    .sub { margin: 0; color: var(--muted); }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .filters input { flex: 1 1 220px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--ink); }
+    .chip { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); cursor: pointer; }
+    .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+    main { max-width: 1200px; margin: 0 auto; padding: 16px; display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+    .item { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
+    .stage { height: 300px; border-bottom: 1px solid var(--line); }
+    .stage.light { background: #fafafa; } .stage.dark { background: #18181b; }
+    .stage iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .info { padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; }
+    .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .name { font-weight: 600; }
+    .meta { color: var(--muted); font-size: 13px; }
+    .meta a { color: var(--accent); }
+    .actions { display: flex; gap: 6px; }
+    .actions button { font: inherit; font-size: 13px; padding: 4px 10px; border-radius: 6px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; }
+    .empty { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>UI Library</h1>
+    <p class="sub">Composants repérés pour de futurs projets — source et auteur sur chaque fiche.</p>
+    <div class="filters">
+      <input id="q" type="search" placeholder="Rechercher (auteur, nom, type)…" aria-label="Rechercher" />
+      <div id="cats" class="filters" style="margin:0"></div>
+    </div>
+  </header>
+  <main id="grid"></main>
+
+  <script src="catalog.js"></script>
+  <script>
+    const items = window.CATALOG || [];
+    const grid = document.getElementById('grid');
+    const q = document.getElementById('q');
+    const cats = document.getElementById('cats');
+    let current = 'all';
+
+    // Fond sombre par défaut pour les éléments conçus sur fond sombre.
+    const DARK_BY_DEFAULT = new Set(['ilkhoeri-swift-panda-38', 'byllzz-fluffy-hound-44']);
+
+    const wrap = code => `<!doctype html><html><head><meta charset="utf-8"><style>
+      html,body{margin:0;height:100%}body{display:flex;align-items:center;justify-content:center;font-family:system-ui,sans-serif}
+    </style></head><body>${code}</body></html>`;
+
+    for (const c of ['all', ...new Set(items.map(i => i.category))]) {
+      const b = document.createElement('button');
+      b.className = 'chip'; b.textContent = c === 'all' ? 'Tout' : c; b.dataset.cat = c;
+      b.setAttribute('aria-pressed', String(c === current));
+      b.onclick = () => { current = c; cats.querySelectorAll('.chip').forEach(x => x.setAttribute('aria-pressed', String(x.dataset.cat === c))); render(); };
+      cats.append(b);
+    }
+
+    function render() {
+      const term = q.value.trim().toLowerCase();
+      const list = items.filter(i => (current === 'all' || i.category === current)
+        && (!term || `${i.id} ${i.kind} ${i.author}`.toLowerCase().includes(term)));
+      grid.replaceChildren();
+      if (!list.length) { grid.innerHTML = '<p class="empty">Aucun élément.</p>'; return; }
+      for (const i of list) {
+        const el = document.createElement('article');
+        el.className = 'item';
+        const dark = DARK_BY_DEFAULT.has(i.id);
+        el.innerHTML = `
+          <div class="stage ${dark ? 'dark' : 'light'}"><iframe loading="lazy" title="${i.id}" sandbox="allow-scripts"></iframe></div>
+          <div class="info">
+            <div class="row"><span class="name">${i.kind} · ${i.slug}</span>
+              <span class="actions"><button data-a="bg">Fond</button><button data-a="copy">Copier le code</button></span></div>
+            <span class="meta">par <a href="https://uiverse.io/profile/${i.author}" target="_blank" rel="noopener">${i.author}</a>
+              · <a href="${i.url}" target="_blank" rel="noopener">source</a> · <code>${i.path}</code></span>
+          </div>`;
+        el.querySelector('iframe').srcdoc = wrap(i.code);
+        el.querySelector('[data-a="bg"]').onclick = () => {
+          const s = el.querySelector('.stage'); s.classList.toggle('dark'); s.classList.toggle('light');
+        };
+        el.querySelector('[data-a="copy"]').onclick = async e => {
+          try { await navigator.clipboard.writeText(i.code); e.target.textContent = 'Copié ✓'; }
+          catch { e.target.textContent = 'Échec copie'; }
+          setTimeout(() => (e.target.textContent = 'Copier le code'), 1500);
+        };
+        grid.append(el);
+      }
+    }
+    q.oninput = render;
+    render();
+  </script>
+</body>
+</html>
