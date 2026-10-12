@@ -187,8 +187,9 @@
     place(c);
     return c;
   });
+  // Mesure la section elle-même : fiable même si elle naît à 0×0 (iframe, onglet, accordéon…)
   resize();
-  addEventListener('resize', resize);
+  new ResizeObserver(() => { resize(); render(); }).observe(root);
 
   // Parallaxe souris, lissée
   let mx = 0, my = 0, tx = 0, ty = 0;
@@ -212,7 +213,10 @@
     world.style.transform = `rotateX(${my * -8}deg) rotateY(${mx * 10}deg)`;
   };
 
-  if (reduced) { render(); return; }
+  // Placement immédiat : sans ça, les cartes restent empilées au centre tant que le navigateur
+  // ne donne pas de frame (iframe hors écran, fenêtre inactive…).
+  render();
+  if (reduced) return;
 
   let last = performance.now(), running = true, raf = 0;
   const loop = now => {
