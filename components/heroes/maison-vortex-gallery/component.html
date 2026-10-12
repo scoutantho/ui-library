@@ -1,5 +1,6 @@
 <!-- Source : recréation maison inspirée du hero de https://getartcraft.com/ (aucun code repris) -->
-<!-- Options : data-count (nb de cartes), data-speed (px/s), data-images (URLs séparées par des virgules) -->
+<!-- Options : data-count (nb de cartes), data-speed (px/s), data-images (URLs séparées par des virgules),
+     data-wheel="off" pour laisser la molette faire défiler la page au lieu d'avancer dans le tunnel -->
 <section class="vortex" data-count="28" data-speed="70">
   <svg class="vortex__rings" viewBox="-500 -500 1000 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <circle r="470" class="tick" />
@@ -16,6 +17,7 @@
 
   <div class="vortex__stage" aria-hidden="true"><div class="vortex__world"></div></div>
   <div class="vortex__veil" aria-hidden="true"></div>
+  <div class="vortex__gauge" aria-hidden="true"></div>
 
   <div class="vortex__content">
     <h1>STUDIO</h1>
@@ -76,7 +78,9 @@
     3px 0 0 -1px rgba(40, 170, 255, .55),
     0 24px 40px -14px rgba(0, 0, 0, .7);
   will-change: transform, opacity;
+  cursor: zoom-in;
 }
+.vortex__card.is-focus { cursor: zoom-out; }
 /* Brouillard : assombrit les cartes lointaines */
 .vortex__card::after {
   content: "";
@@ -96,6 +100,22 @@
     radial-gradient(ellipse at center, transparent 60%, rgba(14, 15, 19, .7));
 }
 
+/* Jauge de profondeur : graduations qui défilent avec la caméra */
+.vortex__gauge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 28px;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(to bottom, rgba(255, 255, 255, .35) 0 1px, transparent 1px 120px) right / 22px 100%,
+    repeating-linear-gradient(to bottom, rgba(255, 255, 255, .15) 0 1px, transparent 1px 24px) right / 10px 100%;
+  background-repeat: repeat-y;
+  -webkit-mask: linear-gradient(transparent, #000 15%, #000 85%, transparent);
+  mask: linear-gradient(transparent, #000 15%, #000 85%, transparent);
+}
+
 .vortex__content {
   position: relative;
   z-index: 1;
@@ -106,7 +126,15 @@
   justify-content: center;
   text-align: center;
   padding: 0 16px;
+  /* Laisse passer les clics vers les cartes, sauf sur le texte et les boutons */
+  pointer-events: none;
+  transition: opacity .4s;
 }
+.vortex__content > * { pointer-events: auto; }
+.vortex__veil { transition: opacity .4s; }
+.vortex.is-focus .vortex__content,
+.vortex.is-focus .vortex__veil { opacity: 0; }
+.vortex.is-focus .vortex__content > * { pointer-events: none; }
 .vortex h1 {
   margin: 0;
   font-size: clamp(36px, 11vw, 150px);
@@ -157,12 +185,16 @@
 (() => {
   const root = document.querySelector('.vortex');
   const world = root.querySelector('.vortex__world');
+  const gauge = root.querySelector('.vortex__gauge');
   const N = +root.dataset.count || 28;
-  const SPEED = +root.dataset.speed || 70;
   const IMAGES = root.dataset.images ? root.dataset.images.split(',').map(s => s.trim()) : null;
+  const WHEEL = root.dataset.wheel !== 'off';
   const FAR = -2600, NEAR = 500;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Mouvement réduit : plus de défilement automatique, la molette et le clic restent actifs
+  const SPEED = reduced ? 0 : +root.dataset.speed || 70;
   const rand = (a, b) => a + Math.random() * (b - a);
+  const lerp = (a, b, t) => a + (b - a) * t;
   const smooth = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
 
   let W = 0, H = 0, k = 1;
@@ -176,20 +208,44 @@
   const place = c => { c.a = rand(0, Math.PI * 2); c.r = rand(.6, 1.2); };
   const sizeCard = c => { c.el.style.width = c.w * k + 'px'; c.el.style.height = c.w * c.ratio * k + 'px'; };
 
+  // Carte agrandie au clic (une seule à la fois)
+  let focused = null, F = 0;
+  const focus = c => {
+    focused?.el.classList.remove('is-focus');
+    focused = c;
+    c?.el.classList.add('is-focus');
+    root.classList.toggle('is-focus', !!c);
+  };
+
   const cards = Array.from({ length: N }, (_, i) => {
     const el = document.createElement('div');
     el.className = 'vortex__card';
     const hue = Math.round(rand(0, 360));
-    const src = IMAGES ? IMAGES[i % IMAGES.length] : `https://picsum.photos/seed/vortex${i}/480/320`;
+    const src = IMAGES ? IMAGES[i % IMAGES.length] : `https://picsum.photos/seed/vortex${i}/800/540`;
     el.style.backgroundImage = `url("${src}"), linear-gradient(135deg, hsl(${hue} 60% 45%), hsl(${hue + 40} 50% 20%))`;
     world.append(el);
-    const c = { el, w: rand(140, 280), ratio: rand(.55, .8), z: FAR + (i / N) * (NEAR - FAR), spin: rand(.01, .04) };
+    const c = { el, w: rand(140, 280), ratio: rand(.55, .8), z: FAR + (i / N) * (NEAR - FAR), spin: rand(.01, .04), hover: false, h: 0, f: 0 };
+    el.addEventListener('pointerenter', () => { c.hover = true; });
+    el.addEventListener('pointerleave', () => { c.hover = false; });
+    el.addEventListener('click', e => { e.stopPropagation(); focus(focused === c ? null : c); });
     place(c);
     return c;
   });
-  // Mesure la section elle-même : fiable même si elle naît à 0×0 (iframe, onglet, accordéon…)
-  resize();
-  new ResizeObserver(() => { resize(); render(); }).observe(root);
+  root.addEventListener('click', () => focus(null));
+  addEventListener('keydown', e => { if (e.key === 'Escape') focus(null); });
+
+  // Molette / glissé tactile : la caméra avance (bas) ou recule (haut), avec inertie
+  let boost = 0, travel = 0;
+  if (WHEEL) {
+    const push = d => { if (focused) focus(null); boost = Math.max(-6000, Math.min(6000, boost + d * 7.5)); };
+    root.addEventListener('wheel', e => { e.preventDefault(); push(e.deltaY * (e.deltaMode === 1 ? 33 : 1)); }, { passive: false });
+    let touchY = 0;
+    root.addEventListener('touchstart', e => { touchY = e.touches[0].clientY; }, { passive: true });
+    root.addEventListener('touchmove', e => {
+      const y = e.touches[0].clientY;
+      e.preventDefault(); push((touchY - y) * 2); touchY = y;
+    }, { passive: false });
+  }
 
   // Parallaxe souris, lissée
   let mx = 0, my = 0, tx = 0, ty = 0;
@@ -202,32 +258,53 @@
 
   const render = () => {
     for (const c of cards) {
-      const x = Math.cos(c.a) * c.r * W * .55;
-      const y = Math.sin(c.a) * c.r * H * .55;
+      const x0 = Math.cos(c.a) * c.r * W * .55;
+      const y0 = Math.sin(c.a) * c.r * H * .55;
       const t = (c.z - FAR) / (NEAR - FAR); // 0 = loin, 1 = contre la caméra
+      // Zoom : la carte revient au plan z = 0 et grandit par sa vraie taille (rendu net, pas d'agrandissement 3D)
+      if (c.f > .001 || c.big) {
+        const w = lerp(c.w * k, Math.min(W * .7, H * .7 / c.ratio), c.f);
+        c.el.style.width = w + 'px'; c.el.style.height = w * c.ratio + 'px';
+        c.big = c.f > .001;
+      }
+      const x = lerp(x0, 0, c.f), y = lerp(y0, 0, c.f), z = lerp(c.z, 0, c.f);
+      const ry = lerp((-x0 / W) * 30, 0, c.f), rx = lerp((y0 / H) * 24, 0, c.f);
       c.el.style.transform =
-        `translate3d(${x}px, ${y}px, ${c.z}px) translate(-50%, -50%) rotateY(${(-x / W) * 30}deg) rotateX(${(y / H) * 24}deg)`;
-      c.el.style.opacity = smooth(0, .15, t) * (1 - smooth(.85, 1, t));
-      c.el.style.setProperty('--fog', (1 - smooth(0, .7, t)) * .75);
+        `translate3d(${x}px, ${y}px, ${z}px) translate(-50%, -50%) rotateY(${ry}deg) rotateX(${rx}deg) scale(${1 + .12 * c.h})`;
+      const op = smooth(0, .15, t) * (1 - smooth(.85, 1, t));
+      c.el.style.opacity = lerp(op * (1 - .75 * F), 1, c.f);
+      c.el.style.setProperty('--fog', lerp((1 - smooth(0, .7, t)) * .75, 0, Math.max(c.f, c.h)));
     }
-    world.style.transform = `rotateX(${my * -8}deg) rotateY(${mx * 10}deg)`;
+    world.style.transform = `rotateX(${my * -8 * (1 - F)}deg) rotateY(${mx * 10 * (1 - F)}deg)`;
+    gauge.style.backgroundPositionY = `${-travel * .15}px, ${-travel * .15}px`;
   };
 
+  // Mesure la section elle-même : fiable même si elle naît à 0×0 (iframe, onglet, accordéon…)
+  resize();
+  new ResizeObserver(() => { resize(); render(); }).observe(root);
   // Placement immédiat : sans ça, les cartes restent empilées au centre tant que le navigateur
   // ne donne pas de frame (iframe hors écran, fenêtre inactive…).
   render();
-  if (reduced) return;
 
-  let last = performance.now(), running = true, raf = 0;
+  let last = performance.now(), running = true, raf = 0, pace = 1;
   const loop = now => {
     const dt = Math.min(.05, (now - last) / 1000);
     last = now;
     mx += (tx - mx) * .06;
     my += (ty - my) * .06;
+    F = lerp(F, focused ? 1 : 0, .1);
+    pace = lerp(pace, focused ? 0 : 1, .08); // le tunnel ralentit pendant le zoom
+    const v = SPEED * pace + boost;
+    boost *= Math.exp(-3 * dt);
+    travel += v * dt;
     for (const c of cards) {
-      c.z += SPEED * dt * (1 + c.r * .3);
-      c.a += c.spin * dt;
+      c.h = lerp(c.h, c.hover && !focused ? 1 : 0, .15);
+      c.f = lerp(c.f, c === focused ? 1 : 0, .12);
+      if (c === focused) continue;
+      c.z += v * dt * (1 + c.r * .3);
+      c.a += c.spin * dt * pace;
       if (c.z > NEAR) { c.z -= NEAR - FAR; place(c); }
+      else if (c.z < FAR) { c.z += NEAR - FAR; place(c); }
     }
     render();
     raf = requestAnimationFrame(loop);
