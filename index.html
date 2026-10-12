@@ -84,7 +84,7 @@
           <div class="info">
             <div class="row"><span class="name">${i.kind} · ${i.slug}</span>
               <span class="actions"><button data-a="bg">Fond</button><button data-a="copy">Copier le code</button></span></div>
-            <span class="meta">par <a href="https://uiverse.io/profile/${i.author}" target="_blank" rel="noopener">${i.author}</a>
+            <span class="meta">par ${i.url.includes('uiverse.io') ? `<a href="https://uiverse.io/profile/${i.author}" target="_blank" rel="noopener">${i.author}</a>` : i.author}
               · <a href="${i.url}" target="_blank" rel="noopener">source</a> · <code>${i.path}</code></span>
           </div>`;
         el.querySelector('iframe').srcdoc = wrap(i.code);
